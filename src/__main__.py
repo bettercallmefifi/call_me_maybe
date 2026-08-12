@@ -12,7 +12,7 @@ from pathlib import Path
 from pydantic import TypeAdapter, ValidationError
 
 from .decoder import DecodeError, decode_all
-from .schemas import FunctionCall, FunctionDefinition
+from .validater import FunctionCall, FunctionDefinition
 
 # --- Configuration & Setup ---
 FUNCTION_VALIDATOR = TypeAdapter(list[FunctionDefinition])

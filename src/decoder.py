@@ -8,7 +8,7 @@ from typing import Any, Callable
 
 import numpy as np
 
-from .schemas import FunctionCall, FunctionDefinition
+from .validater import FunctionCall, FunctionDefinition
 from .tokenizer import Vocabulary
 
 # Safety limit to prevent infinite loops during generation
