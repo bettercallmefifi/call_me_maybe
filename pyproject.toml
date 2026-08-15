@@ -23,13 +23,14 @@ testpaths = ["tests"]
 llm-sdk = { path = "./llm_sdk", editable = true }
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.13"
+files = ["src"]
 warn_return_any = true
 warn_unused_ignores = true
 ignore_missing_imports = true
 disallow_untyped_defs = true
 check_untyped_defs = true
-exclude = ["llm_sdk/", "artifacts/", ".venv/"]
+exclude = ["llm_sdk/", "artifacts/", "^\\.venv/"]
 
 # llm_sdk is the provided package; do not analyse it (it imports torch). Treat
 # it as untyped so importing Small_LLM_Model resolves to Any.
