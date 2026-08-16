@@ -24,9 +24,7 @@ class FunctionDefinition(BaseModel):
 
     def ordered_parameters(self) -> Sequence[tuple[str, ValidJsonTypes]]:
         """Transforms parameters mapping into a strict sequence."""
-        def _extract(
-            item: tuple[str, ParameterSpec]
-        ) -> tuple[str, ValidJsonTypes]:
+        def _extract(item: tuple[str, ParameterSpec]) -> tuple[str, ValidJsonTypes]:
             return item[0], item[1].type
 
         return tuple(map(_extract, self.parameters.items()))
