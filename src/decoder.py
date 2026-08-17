@@ -272,7 +272,12 @@ def decode_all(
         except DecodeError as error:
             print(f"[!] Warning: Prompt {idx + 1} could not be decoded: {error}")
             generated_call = FunctionCall(prompt=prompt, name=functions_list[0].name, parameters={})
-
+        except KeyboardInterrupt:
+            print(
+                f"\n[!] Process interrupted by user (Ctrl+C). "
+                f"Halting and saving {len(collected_results)} results so far..."
+            )
+            break
         collected_results.append(generated_call)
         if on_result:
             on_result(idx, generated_call)

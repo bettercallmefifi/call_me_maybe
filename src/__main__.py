@@ -66,6 +66,9 @@ def run_engine() -> int:
     except Exception as error:
         print(f"[!] Failed to load model '{args.model}': {error}", file=sys.stderr)
         return 1
+    except KeyboardInterrupt:
+        print("\n[!] Model download interrupted by user (Ctrl+C). Exiting safely.", file=sys.stderr)
+        return 1
 
     def display_progress(index: int, call: FunctionCall) -> None:
         print(
